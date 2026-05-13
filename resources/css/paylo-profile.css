@@ -1,0 +1,1974 @@
+/* Paylo Company Profile CSS */
+:root {
+  --primary: #2563EB;
+  --dark-navy: #0F172A;
+  --light-bg: #F8FAFC;
+  --white: #FFFFFF;
+  --soft-cyan: #38BDF8;
+  --light-border: #E2E8F0;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --container-max: 1280px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.paylo-profile {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 120px;
+}
+
+.paylo-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Typography & General */
+.paylo-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 64px;
+}
+
+.paylo-section-label {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.paylo-section-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  color: var(--dark-navy);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.paylo-section-desc {
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+/* Buttons */
+.paylo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.paylo-btn--primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.paylo-btn--primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+}
+
+.paylo-btn--outline {
+  border: 2px solid var(--light-border);
+  color: var(--dark-navy);
+}
+
+.paylo-btn--outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.paylo-btn--white {
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+.paylo-btn--white:hover {
+  background-color: #f1f5f9;
+}
+
+.paylo-btn--lg {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+.paylo-btn--sm {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.paylo-btn--full {
+  width: 100%;
+}
+
+/* Navbar */
+.paylo-nav {
+  position: fixed;
+  top: 35px; /* Height of TopBar */
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 24px 0;
+  transition: all 0.3s ease;
+}
+
+.paylo-nav--scrolled {
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--light-border);
+}
+
+.paylo-nav__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paylo-nav__left {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.paylo-nav__right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.paylo-nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--dark-navy);
+}
+
+.paylo-nav__links {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 1024px) {
+  .paylo-nav__links, .paylo-nav__right {
+    display: none;
+  }
+}
+
+.paylo-nav__link-wrapper {
+  position: relative;
+}
+
+.paylo-nav__link {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 15px;
+  transition: var(--transition);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.paylo-nav__link:hover {
+  background-color: var(--light-bg);
+  color: var(--primary);
+}
+
+.paylo-nav__chevron {
+  transition: transform 0.3s ease;
+}
+
+.paylo-nav__chevron.rotate {
+  transform: rotate(180deg);
+}
+
+.paylo-nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 280px;
+  padding-top: 12px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.paylo-nav__dropdown-inner {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--light-border);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+}
+
+.paylo-nav__dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.paylo-nav__dropdown-item:hover {
+  background-color: var(--light-bg);
+}
+
+.paylo-nav__dropdown-icon {
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid var(--light-border);
+}
+
+.paylo-nav__dropdown-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--dark-navy);
+}
+
+.paylo-nav__dropdown-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.paylo-btn--demo {
+  background-color: var(--dark-navy);
+  border-radius: 100px;
+  padding: 10px 24px;
+}
+
+.paylo-btn--demo:hover {
+  background-color: #1e293b;
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
+}
+
+.paylo-nav__lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(226, 232, 240, 0.5);
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.paylo-nav__lang-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  transition: var(--transition);
+}
+
+.paylo-nav__lang-btn.active {
+  color: var(--primary);
+}
+
+.paylo-nav__lang-divider {
+  color: var(--light-border);
+}
+
+.paylo-nav__signin {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.paylo-nav__burger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dark-navy);
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .paylo-nav__burger {
+    display: block;
+  }
+}
+
+.paylo-nav__mobile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 24px;
+  border-bottom: 1px solid var(--light-border);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.paylo-nav__mobile-link {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.paylo-nav__mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--light-border);
+}
+
+/* Hero Section */
+.paylo-hero {
+  position: relative;
+  padding: 40px 0 100px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.paylo-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.paylo-hero__grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+}
+
+.paylo-hero__glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.paylo-hero__glow--1 {
+  top: -100px;
+  right: -100px;
+  background-color: #2563EB;
+}
+
+.paylo-hero__glow--2 {
+  bottom: -100px;
+  left: -100px;
+  background-color: #0EA5E9;
+}
+
+.paylo-hero__layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.paylo-hero__badge {
+  display: inline-flex;
+  padding: 8px 16px;
+  background: #eff6ff;
+  color: #2563EB;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 32px;
+  border: 1px solid #dbeafe;
+}
+
+.paylo-hero__title {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #111827;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.paylo-hero__subtitle {
+  font-size: 18px;
+  color: #4b5563;
+  margin-bottom: 40px;
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.paylo-hero__actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.paylo-hero__stats {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 40px;
+}
+
+.paylo-hero__stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.paylo-hero__stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Hero Visual & Floating Cards */
+.paylo-hero__visual {
+  position: relative;
+}
+
+.paylo-hero__mockup-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/11;
+}
+
+.paylo-hero__main-mockup {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  border: 8px solid #1e293b;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.paylo-hero__placeholder-image {
+  width: 100%;
+  height: 100%;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #cbd5e1;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.paylo-hero__float-card {
+  position: absolute;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9;
+  z-index: 10;
+  animation: float 6s ease-in-out infinite;
+}
+
+.paylo-hero__float-card--1 {
+  top: 10%;
+  right: -40px;
+  width: 200px;
+  animation-delay: 0s;
+}
+
+.paylo-hero__float-card--2 {
+  bottom: 15%;
+  left: -40px;
+  width: 220px;
+  animation-delay: 1s;
+}
+
+.paylo-hero__float-card--3 {
+  bottom: -20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@media (max-width: 1024px) {
+  .paylo-hero__layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 80px;
+  }
+
+  .paylo-hero__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .paylo-hero__actions {
+    justify-content: center;
+  }
+
+  .paylo-hero__stats {
+    justify-content: center;
+  }
+
+  .paylo-hero__title {
+    font-size: 48px;
+  }
+
+  .paylo-hero__float-card {
+    display: none;
+  }
+}
+
+/* About Section */
+.paylo-about {
+  padding: 100px 0;
+  background-color: var(--light-bg);
+}
+
+.paylo-about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .paylo-about__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.paylo-about__image {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.paylo-about__image img {
+  width: 100%;
+  display: block;
+}
+
+.paylo-about__heading {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.paylo-about__text {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.paylo-about__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.paylo-about__card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid var(--light-border);
+}
+
+.paylo-about__card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(37, 99, 235, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paylo-about__card-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.paylo-about__card-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-navy);
+}
+
+/* Values Section */
+.paylo-values {
+  padding: 100px 0;
+}
+
+.paylo-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 1024px) {
+  .paylo-values__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .paylo-values__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.paylo-values__card {
+  padding: 40px;
+  border-radius: 24px;
+  background: white;
+  border: 1px solid var(--light-border);
+  transition: var(--transition);
+}
+
+.paylo-values__card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.paylo-values__icon {
+  margin-bottom: 24px;
+}
+
+.paylo-values__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-navy);
+  margin-bottom: 12px;
+}
+
+.paylo-values__desc {
+  color: var(--text-muted);
+}
+
+/* Products Section */
+.paylo-products {
+  padding: 100px 0;
+  background-color: var(--light-bg);
+}
+
+.paylo-products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .paylo-products__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.paylo-products__card {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--light-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.paylo-products__card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border: 1px solid transparent;
+}
+
+.paylo-products__card-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 8px;
+}
+
+.paylo-products__card-subtitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.paylo-products__card-detail {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.paylo-products__card-link {
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.paylo-products__card-link:hover {
+  gap: 12px;
+}
+
+/* Why Section */
+.paylo-why {
+  padding: 100px 0;
+}
+
+.paylo-why__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .paylo-why__grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.paylo-why__visual {
+  position: relative;
+}
+
+.paylo-why__card-main {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--light-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.paylo-why__card-header {
+  padding: 12px 20px;
+  background: #F1F5F9;
+  border-bottom: 1px solid var(--light-border);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.paylo-why__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.paylo-why__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #CBD5E1;
+}
+
+.paylo-why__browser-title {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.paylo-why__card-body {
+  padding: 32px;
+}
+
+.paylo-why__skeleton-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.paylo-why__skeleton-item {
+  height: 12px;
+  background: #F1F5F9;
+  border-radius: 4px;
+  width: 40px;
+}
+
+.paylo-why__skeleton-item--wide { width: 120px; }
+
+.paylo-why__skeleton-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 120px;
+}
+
+.paylo-why__skeleton-bar {
+  flex: 1;
+  background: var(--primary);
+  border-radius: 4px 4px 0 0;
+  opacity: 0.2;
+}
+
+.paylo-why__card-float {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--light-border);
+}
+
+.paylo-why__float-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--primary);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paylo-why__float-title { font-weight: 700; font-size: 16px; }
+.paylo-why__float-desc { font-size: 13px; color: var(--text-muted); }
+
+.paylo-why__text {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.paylo-why__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .paylo-why__list { grid-template-columns: 1fr; }
+}
+
+.paylo-why__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.paylo-why__check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paylo-why__feature {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Industries Section */
+.paylo-industries {
+  padding: 100px 0;
+}
+
+.paylo-industries__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .paylo-industries__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .paylo-industries__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.paylo-industries__card {
+  padding: 32px;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--light-border);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.paylo-industries__card:hover {
+  border-color: var(--primary);
+  background: var(--light-bg);
+  transform: translateY(-5px);
+}
+
+.paylo-industries__icon-box {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.paylo-industries__name {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--dark-navy);
+}
+
+/* Impact Section */
+.paylo-impact {
+  padding: 60px 0;
+}
+
+.paylo-impact__bg {
+  background: var(--dark-navy);
+  border-radius: 32px;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.paylo-impact__bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: var(--primary);
+  filter: blur(150px);
+  opacity: 0.2;
+}
+
+.paylo-impact__content {
+  position: relative;
+  z-index: 1;
+}
+
+.paylo-impact__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+
+@media (max-width: 1024px) {
+  .paylo-impact__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .paylo-impact__grid { grid-template-columns: 1fr; }
+}
+
+.paylo-impact__stat {
+  text-align: center;
+}
+
+.paylo-impact__value {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.paylo-impact__label {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+/* Testimonials Section */
+.paylo-testimonials {
+  padding: 100px 0;
+  background-color: var(--light-bg);
+}
+
+.paylo-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 1024px) {
+  .paylo-testimonials__grid { grid-template-columns: 1fr; }
+}
+
+.paylo-testimonials__card {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--light-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.paylo-testimonials__quote {
+  margin-bottom: 24px;
+}
+
+.paylo-testimonials__text {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text-main);
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+.paylo-testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.paylo-testimonials__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.paylo-testimonials__name {
+  font-weight: 700;
+  color: var(--dark-navy);
+}
+
+.paylo-testimonials__role {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Team Section */
+.paylo-team {
+  padding: 100px 0;
+}
+
+.paylo-team__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .paylo-team__grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.paylo-team__text {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.paylo-team__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.paylo-team__group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.paylo-team__group-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.paylo-team__image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.paylo-team__image {
+  width: 100%;
+  display: block;
+}
+
+.paylo-team__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.6), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+}
+
+.paylo-team__badge {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--dark-navy);
+}
+
+/* CTA Section */
+.paylo-cta {
+  padding: 100px 0;
+}
+
+.paylo-cta__box {
+  background-color: var(--primary);
+  border-radius: 32px;
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.paylo-cta__title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.paylo-cta__subtext {
+  font-size: 18px;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.paylo-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .paylo-cta__actions { flex-direction: column; }
+}
+
+.paylo-cta__circle {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.1;
+}
+
+.paylo-cta__circle--1 {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  left: -150px;
+}
+
+.paylo-cta__circle--2 {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  right: -50px;
+}
+
+/* Footer Section */
+.paylo-footer {
+  padding: 80px 0 40px;
+  background-color: white;
+  border-top: 1px solid var(--light-border);
+}
+
+.paylo-footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 1024px) {
+  .paylo-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.paylo-footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 24px;
+}
+
+.paylo-footer__desc {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  max-width: 300px;
+}
+
+.paylo-footer__address {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.paylo-footer__nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .paylo-footer__nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.paylo-footer__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark-navy);
+  margin-bottom: 20px;
+}
+
+.paylo-footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.paylo-footer__links li {
+  margin-bottom: 12px;
+}
+
+.paylo-footer__links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.paylo-footer__links a:hover {
+  color: var(--primary);
+}
+
+.paylo-footer__bottom {
+  padding-top: 40px;
+  border-top: 1px solid var(--light-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .paylo-footer__bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+.paylo-footer__legal {
+  display: flex;
+  gap: 24px;
+}
+
+.paylo-footer__legal a {
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+/* Top Bar */
+.paylo-topbar {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.paylo-topbar--hidden {
+  transform: translateY(-100%);
+}
+
+.paylo-topbar__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paylo-topbar__left {
+  display: flex;
+  gap: 24px;
+}
+
+.paylo-topbar__promo {
+  text-decoration: none;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.paylo-topbar__badge {
+  background-color: #0f172a;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+/* Mega Menu */
+.paylo-mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: transparent; /* Transparent background for the wrapper */
+  z-index: 999;
+  animation: megaFadeIn 0.2s ease-out;
+  padding-top: 12px; /* Spacing from navbar */
+}
+
+@keyframes megaFadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.paylo-mega__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  min-height: 400px;
+  background: white; /* Move background here */
+  border-radius: 24px; /* Rounded corners for the card */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); /* Stronger shadow for floating effect */
+  overflow: hidden; /* Clip contents to the rounded corners */
+  border: 1px solid #e2e8f0;
+}
+
+.paylo-mega__sidebar {
+  width: 300px;
+  background: #f0f7ff;
+  padding: 40px;
+  border-right: 1px solid #e2e8f0;
+  border-bottom-left-radius: 24px;
+}
+
+.paylo-mega__title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.paylo-mega__desc {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.paylo-mega__btn {
+  background: linear-gradient(135deg, #2563EB, #60a5fa);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.paylo-mega__btn:hover {
+  transform: translateY(-2px);
+}
+
+.paylo-mega__footer-links {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.paylo-mega__footer-links a {
+  text-decoration: none;
+  color: #2563EB;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.paylo-mega__content {
+  flex: 1;
+  padding: 40px;
+  background: white;
+  border-bottom-right-radius: 24px;
+}
+
+.paylo-mega__section {
+  margin-bottom: 32px;
+}
+
+.paylo-mega__section-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.paylo-mega__grid-apps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.paylo-mega__app-pill {
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.paylo-mega__app-pill:hover {
+  transform: scale(1.05);
+}
+
+.paylo-mega__grid-prime {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.paylo-mega__prime-card {
+  background: #111827;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.paylo-mega__grid-services {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.paylo-mega__service-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 20px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  font-size: 13px;
+}
+
+.paylo-mega__grid-solutions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.paylo-mega__grid-support {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.paylo-mega__support-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.paylo-mega__support-item:hover {
+  background: #f0f7ff;
+}
+
+.paylo-mega__support-icon {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.paylo-mega__sol-col p {
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.paylo-mega__sol-col p:hover {
+  color: #2563EB;
+}
+
+/* Specific Buttons */
+.paylo-btn--teal {
+  background-color: #2563EB;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: 700;
+}
+
+.paylo-btn--teal:hover {
+  background-color: #1d4ed8;
+}
+
+.paylo-nav__link.active {
+  color: #2563EB;
+}
+
+.paylo-btn--outline-teal {
+  background: white;
+  color: #2563EB;
+  border: 1px solid #2563EB;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.paylo-btn--outline-teal:hover {
+  background: #f0f7ff;
+}
+
+/* Demo Section */
+.paylo-demo-page {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.paylo-demo-page__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.paylo-demo-page__breadcrumb {
+  font-size: 14px;
+  font-weight: 800;
+  color: #2563EB;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.paylo-demo-page__title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+.paylo-demo-page__subtitle {
+  font-size: 18px;
+  color: #4b5563;
+  margin-bottom: 40px;
+}
+
+.paylo-demo-page__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.paylo-demo-page__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.paylo-demo-page__tab-btn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.paylo-demo-page__tab-btn:hover {
+  background: #f1f5f9;
+}
+
+.paylo-demo-page__tab-btn.active {
+  background: white;
+  border-color: #2563EB;
+  color: #2563EB;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.paylo-demo-page__content {
+  background: #f8fafc;
+  border-radius: 32px;
+  padding: 80px;
+  text-align: center;
+}
+
+.paylo-demo-page__info {
+  margin-bottom: 60px;
+}
+
+.paylo-demo-page__tab-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.paylo-demo-page__tab-desc {
+  font-size: 18px;
+  color: #4b5563;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.paylo-demo-page__mockup {
+  max-width: 1000px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  background: #111827;
+  border-radius: 20px;
+  border: 8px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
+}
+
+.paylo-demo-page__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: #475569;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  font-size: 14px;
+}
+
+/* WhatsApp Widget */
+.paylo-whatsapp {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: #2563EB;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+  z-index: 1000;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.paylo-whatsapp:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.paylo-whatsapp__icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paylo-whatsapp__text {
+  line-height: 1.2;
+}
+
+/* Pricing Page */
+.paylo-pricing-page {
+  padding: 100px 0;
+  background-color: #f8fafc;
+}
+
+.paylo-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.paylo-pricing-card {
+  background: white;
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.paylo-pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+.paylo-pricing-card.recommended {
+  border: 2px solid #2563EB;
+  box-shadow: 0 20px 50px -12px rgba(37, 99, 235, 0.15);
+}
+
+.paylo-pricing-card__badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #2563EB;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.paylo-pricing-card__name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.paylo-pricing-card__price {
+  margin-bottom: 12px;
+}
+
+.paylo-pricing-card__price .value {
+  font-size: 40px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.paylo-pricing-card__price .period {
+  color: #64748b;
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+.paylo-pricing-card__desc {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 32px;
+  min-height: 40px;
+}
+
+.paylo-pricing-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  flex-grow: 1;
+}
+
+.paylo-pricing-card__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.paylo-pricing-card__list li svg {
+  color: #2563EB;
+  flex-shrink: 0;
+}
+
+/* Features Section */
+.paylo-features {
+  padding: 100px 0;
+  background-color: #f8fafc;
+}
+
+.paylo-features__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.paylo-features__card {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  transition: var(--transition);
+}
+
+.paylo-features__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+  border-color: #2563EB;
+}
+
+.paylo-features__icon-box {
+  width: 60px;
+  height: 60px;
+  background: #eff6ff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+
+.paylo-features__name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.paylo-features__desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .paylo-features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .paylo-features__grid {
+    grid-template-columns: 1fr;
+  }
+}
