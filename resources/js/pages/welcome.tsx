@@ -30,9 +30,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }: WelcomePro
         <>
             <Head title="Paylo — Platform Teknologi Manajemen Bisnis">
                 <meta name="description" content="Paylo adalah perusahaan software bisnis yang fokus menyederhanakan operasional melalui solusi inventaris, kasir, absensi, dan analitik terintegrasi untuk bisnis yang sedang berkembang." />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
             </Head>
             <div className="paylo-profile">
                 <TopBar />

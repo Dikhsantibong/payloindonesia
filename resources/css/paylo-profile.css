@@ -1972,3 +1972,33 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* WhatsApp Floating Button */
+.paylo-whatsapp-float {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+  z-index: 9999;
+  transition: all 0.3s ease;
+  animation: pulse-whatsapp 2s infinite;
+}
+
+.paylo-whatsapp-float:hover {
+  transform: scale(1.1) rotate(5deg);
+  background-color: #128C7E;
+}
+
+@keyframes pulse-whatsapp {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}

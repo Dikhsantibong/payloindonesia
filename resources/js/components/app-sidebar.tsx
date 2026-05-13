@@ -1,8 +1,19 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import {
+    LayoutGrid,
+    Building2,
+    CreditCard,
+    Package,
+    BarChart3,
+    Users,
+    Headphones,
+    Activity,
+    Settings,
+    HelpCircle,
+} from 'lucide-react';
 import AppLogo from '@/components/app-logo';
-import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
+import { NavFooter } from '@/components/nav-footer';
 import { NavUser } from '@/components/nav-user';
 import {
     Sidebar,
@@ -12,6 +23,7 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
@@ -22,18 +34,53 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Tenant Management',
+        href: '/admin/tenants',
+        icon: Building2,
+    },
+    {
+        title: 'Subscription',
+        href: '/admin/subscriptions',
+        icon: CreditCard,
+    },
+    {
+        title: 'Paket Langganan',
+        href: '/admin/packages',
+        icon: Package,
+    },
+    {
+        title: 'Analytics',
+        href: '/admin/analytics',
+        icon: BarChart3,
+    },
+    {
+        title: 'User Management',
+        href: '/admin/users',
+        icon: Users,
+    },
+    {
+        title: 'Support Ticket',
+        href: '/admin/support',
+        icon: Headphones,
+    },
+    {
+        title: 'Activity Logs',
+        href: '/admin/logs',
+        icon: Activity,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: FolderGit2,
+        title: 'Pengaturan Sistem',
+        href: '/admin/settings',
+        icon: Settings,
     },
     {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
+        title: 'Help Center',
+        href: '#',
+        icon: HelpCircle,
     },
 ];
 
@@ -57,6 +104,7 @@ export function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter>
+                <SidebarSeparator />
                 <NavFooter items={footerNavItems} className="mt-auto" />
                 <NavUser />
             </SidebarFooter>

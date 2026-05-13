@@ -80,7 +80,7 @@ export default function FooterSection({ lang }: { lang: 'ID' | 'EN' }) {
                 </div>
 
                 <div className="paylo-footer__bottom">
-                    <p>© {new Date().getFullYear()} Paylo (PT Solusi Digital Bisnis). {current.copyright}</p>
+                    <p>© {new Date().getFullYear()} Paylo (PT KREATIF TEKNOLOGI MAJU BERSAMA). {current.copyright}</p>
                     <div className="paylo-footer__legal">
                         {current.legal.map(l => <a key={l} href="#">{l}</a>)}
                     </div>

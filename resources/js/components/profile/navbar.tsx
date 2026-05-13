@@ -87,8 +87,8 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
                         <span className="paylo-nav__lang-divider">|</span>
                         <button className={`paylo-nav__lang-btn ${lang === 'EN' ? 'active' : ''}`} onClick={() => setLang('EN')}>EN</button>
                     </div>
-                    <a href="#" className="paylo-nav__signin">{current.signin}</a>
-                    <Link href="/demo" className="paylo-btn paylo-btn--teal paylo-btn--sm">
+                    <Link href="/login" className="paylo-nav__signin">{current.signin}</Link>
+                    <Link href="/register" className="paylo-btn paylo-btn--teal paylo-btn--sm">
                         {current.cta}
                     </Link>
                 </div>
