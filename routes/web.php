@@ -37,7 +37,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::put('admin/support/{ticket}/status', [\App\Http\Controllers\Admin\SupportTicketController::class, 'updateStatus'])->name('admin.support.status');
         
         Route::get('admin/logs', [\App\Http\Controllers\Admin\ActivityLogController::class, 'index'])->name('admin.logs');
-        Route::inertia('admin/settings', 'admin/settings')->name('admin.settings');
+        Route::get('admin/settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin.settings');
+        Route::post('admin/settings', [\App\Http\Controllers\Admin\SettingController::class, 'store'])->name('admin.settings.store');
     });
 });
 
