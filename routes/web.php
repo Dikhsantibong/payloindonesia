@@ -7,7 +7,12 @@ Route::inertia('/', 'welcome', [
     'canRegister' => Features::enabled(Features::registration()),
 ])->name('home');
 
-Route::inertia('pricing', 'pricing')->name('pricing');
+Route::get('pricing', function () {
+    $plans = \App\Models\SubscriptionPlan::where('is_active', true)->get();
+    return Inertia\Inertia::render('pricing', [
+        'plans' => $plans
+    ]);
+})->name('pricing');
 Route::inertia('demo', 'demo')->name('demo');
 
 Route::middleware(['auth', 'verified'])->group(function () {

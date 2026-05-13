@@ -4,71 +4,19 @@ import Navbar from '@/components/profile/navbar';
 import FooterSection from '@/components/profile/footer-section';
 import TopBar from '@/components/profile/top-bar';
 
-export default function Pricing() {
+export default function Pricing({ plans }: any) {
     const [lang, setLang] = useState<'ID' | 'EN'>('ID');
 
     const content = {
         ID: {
             title: 'Pilih Paket yang Sesuai untuk Bisnis Anda',
             subtitle: 'Harga transparan tanpa biaya tersembunyi. Mulai gratis dan upgrade kapan saja.',
-            plans: [
-                {
-                    name: 'Starter',
-                    price: 'Gratis',
-                    desc: 'Untuk bisnis kecil yang baru memulai',
-                    features: ['1 Outlet', '100 Produk', 'Laporan Dasar', 'Suport Email'],
-                    cta: 'Mulai Sekarang',
-                    recommended: false
-                },
-                {
-                    name: 'Pro',
-                    price: 'Rp 250rb',
-                    period: '/bulan',
-                    desc: 'Untuk bisnis yang sedang berkembang pesat',
-                    features: ['5 Outlet', 'Produk Tak Terbatas', 'Analitik Lanjutan', 'Suport 24/7', 'Manajemen Karyawan'],
-                    cta: 'Pilih Pro',
-                    recommended: true
-                },
-                {
-                    name: 'Enterprise',
-                    price: 'Hubungi Kami',
-                    desc: 'Solusi kustom untuk skala besar',
-                    features: ['Outlet Tak Terbatas', 'API Access', 'Account Manager Khusus', 'SLA 99.9%', 'Kustom Integrasi'],
-                    cta: 'Hubungi Sales',
-                    recommended: false
-                }
-            ]
+            ctaDefault: 'Mulai Sekarang',
         },
         EN: {
             title: 'Choose the Right Plan for Your Business',
             subtitle: 'Transparent pricing with no hidden fees. Start for free and upgrade anytime.',
-            plans: [
-                {
-                    name: 'Starter',
-                    price: 'Free',
-                    desc: 'For small businesses just starting out',
-                    features: ['1 Outlet', '100 Products', 'Basic Reports', 'Email Support'],
-                    cta: 'Get Started',
-                    recommended: false
-                },
-                {
-                    name: 'Pro',
-                    price: '$19',
-                    period: '/month',
-                    desc: 'For rapidly growing businesses',
-                    features: ['5 Outlets', 'Unlimited Products', 'Advanced Analytics', '24/7 Support', 'Employee Management'],
-                    cta: 'Go Pro',
-                    recommended: true
-                },
-                {
-                    name: 'Enterprise',
-                    price: 'Contact Us',
-                    desc: 'Custom solutions for large scale',
-                    features: ['Unlimited Outlets', 'API Access', 'Dedicated Account Manager', '99.9% SLA', 'Custom Integration'],
-                    cta: 'Contact Sales',
-                    recommended: false
-                }
-            ]
+            ctaDefault: 'Get Started',
         }
     };
 
@@ -89,28 +37,41 @@ export default function Pricing() {
                         </div>
 
                         <div className="paylo-pricing-grid">
-                            {current.plans.map((plan, i) => (
-                                <div key={i} className={`paylo-pricing-card ${plan.recommended ? 'recommended' : ''}`}>
-                                    {plan.recommended && <div className="paylo-pricing-card__badge">Populer</div>}
-                                    <h3 className="paylo-pricing-card__name">{plan.name}</h3>
-                                    <div className="paylo-pricing-card__price">
-                                        <span className="value">{plan.price}</span>
-                                        {plan.period && <span className="period">{plan.period}</span>}
+                            {plans && plans.map((plan: any) => {
+                                const isRecommended = plan.name.toLowerCase() === 'pro';
+                                return (
+                                    <div key={plan.id} className={`paylo-pricing-card ${isRecommended ? 'recommended' : ''}`}>
+                                        {isRecommended && <div className="paylo-pricing-card__badge">Populer</div>}
+                                        <h3 className="paylo-pricing-card__name">{plan.name}</h3>
+                                        <div className="paylo-pricing-card__price">
+                                            <span className="value">
+                                                {Number(plan.price) === 0 
+                                                    ? (lang === 'ID' ? 'Gratis' : 'Free') 
+                                                    : `Rp ${Number(plan.price).toLocaleString('id-ID')}`}
+                                            </span>
+                                            {Number(plan.price) > 0 && <span className="period">/{plan.duration_days} {lang === 'ID' ? 'hari' : 'days'}</span>}
+                                        </div>
+                                        <p className="paylo-pricing-card__desc">
+                                            {plan.max_users} Users, {plan.max_products} {lang === 'ID' ? 'Produk' : 'Products'}
+                                        </p>
+                                        <ul className="paylo-pricing-card__list">
+                                            {Array.isArray(plan.features) && plan.features.map((f: string) => (
+                                                <li key={f}>
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M20 6L9 17l-5-5"/></svg>
+                                                    {f}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <button className={`paylo-btn paylo-btn--full ${isRecommended ? 'paylo-btn--teal' : 'paylo-btn--outline-teal'}`}>
+                                            {current.ctaDefault}
+                                        </button>
                                     </div>
-                                    <p className="paylo-pricing-card__desc">{plan.desc}</p>
-                                    <ul className="paylo-pricing-card__list">
-                                        {plan.features.map(f => (
-                                            <li key={f}>
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M20 6L9 17l-5-5"/></svg>
-                                                {f}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <button className={`paylo-btn paylo-btn--full ${plan.recommended ? 'paylo-btn--teal' : 'paylo-btn--outline-teal'}`}>
-                                        {plan.cta}
-                                    </button>
-                                </div>
-                            ))}
+                                );
+                            })}
+                            
+                            {(!plans || plans.length === 0) && (
+                                <p className="text-center w-full col-span-3 py-10">Belum ada paket tersedia.</p>
+                            )}
                         </div>
                     </div>
                 </section>
