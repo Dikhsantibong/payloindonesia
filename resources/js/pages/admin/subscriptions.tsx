@@ -95,7 +95,7 @@ export default function Subscriptions({ subscriptions, plans, filters }: any) {
             status: key === 'status' ? val : filterStatus,
             plan: key === 'plan' ? val : filterPlan,
         };
-        router.get(route('admin.subscriptions'), query, { preserveState: true, preserveScroll: true });
+        router.get('/admin/subscriptions', query, { preserveState: true, preserveScroll: true });
     };
 
     const openDialog = (sub: any) => {
@@ -111,7 +111,7 @@ export default function Subscriptions({ subscriptions, plans, filters }: any) {
         e.preventDefault();
         if (!editingSub) return;
         
-        put(route('admin.subscriptions.update', editingSub.id), {
+        put(`/admin/subscriptions/${editingSub.id}`, {
             onSuccess: () => {
                 setIsDialogOpen(false);
                 setEditingSub(null);

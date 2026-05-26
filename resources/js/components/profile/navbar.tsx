@@ -15,7 +15,6 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
     const content = {
         ID: {
             links: [
-                { label: 'Produk', href: '/#products', hasDropdown: true, type: 'products' },
                 { label: 'Layanan', href: '/#about', hasDropdown: true, type: 'services' },
                 { label: 'Solusi', href: '/#solutions', hasDropdown: true, type: 'solutions' },
                 { label: 'Harga', href: '/pricing', hasDropdown: false, isExternal: true },
@@ -23,11 +22,73 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
                 { label: 'Demo Paylo', href: '/demo', hasDropdown: false, isExternal: true },
             ],
             signin: 'Masuk',
-            cta: 'Coba Gratis'
+            cta: 'Coba Gratis',
+            servicesTitle: 'Layanan Ekosistem',
+            servicesDesc: 'Kembangkan bisnis Anda secara berkelanjutan dengan bimbingan, suplai bahan baku, pendanaan, dan layanan tambahan Paylo.',
+            servicesMore: 'Selengkapnya',
+            servicesList: [
+                { title: 'POS Kasir', desc: 'Kelola transaksi penjualan lebih cepat dan mudah.', num: '01' },
+                { title: 'Inventory', desc: 'Pantau stok barang dan bahan baku realtime.', num: '02' },
+                { title: 'Analisa Bisnis', desc: 'Lihat laporan penjualan dan performa usaha.', num: '03' },
+                { title: 'Manajemen Karyawan', desc: 'Absensi, jadwal kerja, dan data staff.', num: '04' },
+                { title: 'Pembayaran Digital', desc: 'QRIS dan metode pembayaran modern.', num: '05' },
+                { title: 'Support & Setup', desc: 'Tim Paylo membantu onboarding bisnis Anda.', num: '06' },
+            ],
+            supportItems: [
+                { title: 'Paylo Assist 24/7' },
+                { title: 'Kirim Tiket Bantuan' },
+                { title: 'Pusat Solusi Cepat' },
+                { title: 'Dokumentasi & Fitur' },
+                { title: 'Akademi & Video Panduan' }
+            ],
+            solutionsTitle: 'Solusi Bisnis',
+            solutionsDesc: 'Semua solusi terbaik untuk mendominasi segala jenis bisnismu.',
+            solutionsMore: 'Lebih Lanjut',
+            solutions: [
+                {
+                    title: 'Food & Beverages',
+                    items: [
+                        'Restoran & Dining',
+                        'Kafe & Kedai Kopi',
+                        'Katering & Jasa Boga',
+                        'Waralaba & Multi-Outlet',
+                        'Food Truck & Street Food'
+                    ]
+                },
+                {
+                    title: 'Jasa & Layanan',
+                    items: [
+                        'Kecantikan, Rambut & Spa',
+                        'Hotel, Villa & Penginapan',
+                        'Pusat Kebugaran & Gym',
+                        'Bengkel & Servis Otomotif',
+                        'Klinik & Studio Profesional'
+                    ]
+                },
+                {
+                    title: 'Ritel & Distribusi',
+                    items: [
+                        'Minimarket & Toko Kelontong',
+                        'Fashion, Butik & Aksesoris',
+                        'Apotek & Toko Obat',
+                        'Toko Elektronik & Gadget',
+                        'Grosir & Distributor Besar'
+                    ]
+                },
+                {
+                    title: 'Korporat & Enterprise',
+                    items: [
+                        'Pabrik & Manufaktur',
+                        'Pergudangan & Rantai Pasok',
+                        'Logistik, Kurir & Kargo',
+                        'Agensi Kreatif & Konsultan IT',
+                        'Pusat Edukasi & Pelatihan'
+                    ]
+                }
+            ]
         },
         EN: {
             links: [
-                { label: 'Products', href: '/#products', hasDropdown: true, type: 'products' },
                 { label: 'Services', href: '/#about', hasDropdown: true, type: 'services' },
                 { label: 'Solutions', href: '/#solutions', hasDropdown: true, type: 'solutions' },
                 { label: 'Pricing', href: '/pricing', hasDropdown: false, isExternal: true },
@@ -35,7 +96,70 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
                 { label: 'Paylo Demo', href: '/demo', hasDropdown: false, isExternal: true },
             ],
             signin: 'Sign In',
-            cta: 'Free Trial'
+            cta: 'Free Trial',
+            servicesTitle: 'Ecosystem Services',
+            servicesDesc: 'Grow your business sustainably with raw supply chains, flexible funding, and expert business guidance.',
+            servicesMore: 'Learn More',
+            servicesList: [
+                { title: 'POS System', desc: 'Manage sales transactions faster and easier.', num: '01' },
+                { title: 'Inventory', desc: 'Monitor goods and raw material stock in real-time.', num: '02' },
+                { title: 'Business Analytics', desc: 'View sales reports and business performance.', num: '03' },
+                { title: 'Employee Management', desc: 'Attendance, work schedules, and staff data.', num: '04' },
+                { title: 'Digital Payment', desc: 'QRIS and modern payment methods.', num: '05' },
+                { title: 'Support & Setup', desc: 'Paylo team helps onboard your business.', num: '06' },
+            ],
+            supportItems: [
+                { title: 'Paylo Assist 24/7' },
+                { title: 'Submit Support Ticket' },
+                { title: 'Quick Solution Center' },
+                { title: 'Docs & Feature Guides' },
+                { title: 'Paylo Academy (Videos)' }
+            ],
+            solutionsTitle: 'Business Solutions',
+            solutionsDesc: 'All the best solutions to dominate any type of your business.',
+            solutionsMore: 'Learn More',
+            solutions: [
+                {
+                    title: 'Food & Beverages',
+                    items: [
+                        'Restaurants & Fine Dining',
+                        'Cafes & Coffee Shops',
+                        'Catering & Event Service',
+                        'Franchises & Multi-Outlets',
+                        'Food Trucks & Street Food'
+                    ]
+                },
+                {
+                    title: 'Hospitality & Services',
+                    items: [
+                        'Beauty, Hair & Spa Salons',
+                        'Hotels, Villas & Lodgings',
+                        'Fitness Centers & Gyms',
+                        'Automotive & Repair Workshops',
+                        'Clinics & Professional Studios'
+                    ]
+                },
+                {
+                    title: 'Retail & Distribution',
+                    items: [
+                        'Minimarts & Grocery Stores',
+                        'Fashion, Boutiques & Accessories',
+                        'Pharmacies & Drugstores',
+                        'Electronics & Gadget Stores',
+                        'Wholesalers & Distributors'
+                    ]
+                },
+                {
+                    title: 'Corporate & Enterprise',
+                    items: [
+                        'Factories & Manufacturing',
+                        'Supply Chain & Warehousing',
+                        'Logistics, Courier & Cargo Services',
+                        'Creative Agencies & IT Consultants',
+                        'Education & Training Centers'
+                    ]
+                }
+            ]
         }
     };
 
@@ -61,6 +185,7 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
                                 key={l.label} 
                                 className="paylo-nav__link-wrapper"
                                 onMouseEnter={() => l.hasDropdown && setActiveDropdown(l.type || null)}
+                                style={{ position: 'relative' }}
                             >
                                 {l.isExternal ? (
                                     <Link href={l.href} className={`paylo-nav__link ${activeDropdown === l.type ? 'active' : ''}`}>
@@ -75,6 +200,56 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
                                             </svg>
                                         )}
                                     </a>
+                                )}
+
+                                {l.type === 'support' && activeDropdown === 'support' && (
+                                    <div 
+                                        className="paylo-support-dropdown"
+                                        style={{
+                                            position: 'absolute',
+                                            top: '100%',
+                                            left: '50%',
+                                            transform: 'translateX(-50%)',
+                                            marginTop: '10px',
+                                            background: '#ffffff',
+                                            borderRadius: '24px',
+                                            boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1), 0 0 1px 0 rgba(0, 0, 0, 0.08)',
+                                            width: '240px',
+                                            padding: '24px 20px',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: '16px',
+                                            zIndex: 1000,
+                                            border: '1px solid rgba(226, 232, 240, 0.8)'
+                                        }}
+                                    >
+                                        {current.supportItems && current.supportItems.map((item: any) => (
+                                            <a 
+                                                key={item.title} 
+                                                href="#" 
+                                                style={{ 
+                                                    fontSize: '14px', 
+                                                    fontWeight: '600', 
+                                                    color: '#1e293b', 
+                                                    textDecoration: 'none',
+                                                    paddingLeft: '4px',
+                                                    transition: 'all 0.15s ease',
+                                                    textAlign: 'left',
+                                                    display: 'block'
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.color = '#2563EB';
+                                                    e.currentTarget.style.transform = 'translateX(4px)';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.color = '#1e293b';
+                                                    e.currentTarget.style.transform = 'translateX(0)';
+                                                }}
+                                            >
+                                                {item.title}
+                                            </a>
+                                        ))}
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -102,78 +277,59 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
             </div>
 
             {/* Mega Menus (same as before) */}
-            {activeDropdown === 'products' && (
-                <div className="paylo-mega">
-                    <div className="paylo-mega__container">
-                        <div className="paylo-mega__sidebar">
-                            <h2 className="paylo-mega__title">Produk</h2>
-                            <p className="paylo-mega__desc">Temukan informasi produk dan fitur paylo lebih lanjut.</p>
-                            <Link href="/demo" className="paylo-mega__btn">Lebih lanjut <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link>
-                            <div className="paylo-mega__footer-links">
-                                <a href="#">Kenapa pilih paylo? →</a>
-                                <a href="#">Update produk paylo →</a>
-                            </div>
-                        </div>
-                        <div className="paylo-mega__content">
-                            <div className="paylo-mega__section">
-                                <h4 className="paylo-mega__section-title">FITUR APLIKASI</h4>
-                                <div className="paylo-mega__grid-apps">
-                                    <div className="paylo-mega__app-pill" style={{backgroundColor: '#F59E0B'}}>Kasir Online →</div>
-                                    <div className="paylo-mega__app-pill" style={{backgroundColor: '#0EA5E9'}}>Akuntansi →</div>
-                                    <div className="paylo-mega__app-pill" style={{backgroundColor: '#EC4899'}}>Aplikasi CRM →</div>
-                                    <div className="paylo-mega__app-pill" style={{backgroundColor: '#6366F1'}}>Aplikasi Owner →</div>
-                                    <div className="paylo-mega__app-pill" style={{backgroundColor: '#D97706'}}>Karyawan →</div>
-                                    <div className="paylo-mega__app-pill" style={{backgroundColor: '#4F46E5'}}>Inventori →</div>
-                                    <div className="paylo-mega__app-pill" style={{backgroundColor: '#10B981'}}>Analisa Bisnis →</div>
-                                    <div className="paylo-mega__app-pill" style={{backgroundColor: '#EF4444'}}>Order Online →</div>
-                                </div>
-                            </div>
-                            <div className="paylo-mega__section">
-                                <div className="flex justify-between items-center mb-4">
-                                    <h4 className="paylo-mega__section-title">PRODUK PRIME</h4>
-                                    <a href="#" className="text-sm text-blue-600 font-bold">Lihat semua →</a>
-                                </div>
-                                <div className="paylo-mega__grid-prime">
-                                    <div className="paylo-mega__prime-card">Prime FnB</div>
-                                    <div className="paylo-mega__prime-card">Prime Jasa</div>
-                                    <div className="paylo-mega__prime-card">Prime Retail</div>
-                                    <div className="paylo-mega__prime-card">Prime Beauty</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
+
 
             {/* Services Mega Menu */}
             {activeDropdown === 'services' && (
                 <div className="paylo-mega">
                     <div className="paylo-mega__container">
-                        <div className="paylo-mega__sidebar">
-                            <h2 className="paylo-mega__title">Layanan</h2>
-                            <p className="paylo-mega__desc">Kembangkan bisnis dengan layanan dan bimbingan.</p>
-                            <Link href="/demo" className="paylo-mega__btn">Lebih lanjut <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link>
+                        <div className="paylo-mega__sidebar" style={{ padding: '40px' }}>
+                            <h2 className="paylo-mega__title" style={{ fontSize: '28px', fontWeight: '800' }}>
+                                {current.servicesTitle}
+                            </h2>
+                            <p className="paylo-mega__desc" style={{ fontSize: '14px', lineHeight: '1.6', margin: '16px 0 32px', color: '#4b5563' }}>
+                                {current.servicesDesc}
+                            </p>
+                            <Link href="/demo" className="paylo-mega__btn" style={{ padding: '12px 24px', fontSize: '15px' }}>
+                                {current.servicesMore} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </Link>
                         </div>
-                        <div className="paylo-mega__content">
-                            <div className="paylo-mega__section">
-                                <h4 className="paylo-mega__section-title">PAYLO GROW</h4>
-                                <div className="paylo-mega__grid-services">
-                                    <div className="paylo-mega__service-card">Franchise</div>
-                                    <div className="paylo-mega__service-card">Pay</div>
-                                    <div className="paylo-mega__service-card">Capital</div>
-                                    <div className="paylo-mega__service-card">Supplies</div>
-                                    <div className="paylo-mega__service-card">Ads</div>
-                                </div>
-                            </div>
-                            <div className="paylo-mega__section">
-                                <h4 className="paylo-mega__section-title">PAYLOWIRA</h4>
-                                <div className="paylo-mega__grid-services">
-                                    <div className="paylo-mega__service-card">Mentor</div>
-                                    <div className="paylo-mega__service-card">Kompetisi</div>
-                                    <div className="paylo-mega__service-card">Ruang</div>
-                                    <div className="paylo-mega__service-card">Pustaka</div>
-                                    <div className="paylo-mega__service-card">Inspirasi</div>
-                                </div>
+                        <div className="paylo-mega__content" style={{ padding: '40px' }}>
+                            <div className="paylo-mega__grid-services" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+                                {current.servicesList && current.servicesList.map((item: any) => (
+                                    <div 
+                                        key={item.title} 
+                                        className="paylo-mega__service-card" 
+                                        style={{ 
+                                            textAlign: 'left', 
+                                            padding: '24px', 
+                                            background: '#ffffff', 
+                                            borderRadius: '16px', 
+                                            border: '1px solid #e2e8f0', 
+                                            transition: 'all 0.2s', 
+                                            cursor: 'pointer',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            gap: '8px'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.borderColor = '#2563EB';
+                                            e.currentTarget.style.boxShadow = '0 12px 24px -8px rgba(37, 99, 235, 0.15)';
+                                            e.currentTarget.style.transform = 'translateY(-4px)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.borderColor = '#e2e8f0';
+                                            e.currentTarget.style.boxShadow = 'none';
+                                            e.currentTarget.style.transform = 'translateY(0)';
+                                        }}
+                                    >
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
+                                            <span style={{ fontSize: '14px', fontWeight: '800', color: '#2563EB', opacity: '0.9', letterSpacing: '0.05em' }}>{item.num}</span>
+                                            <h5 style={{ fontWeight: '800', color: '#0f172a', fontSize: '16px', margin: '0' }}>{item.title}</h5>
+                                        </div>
+                                        <p style={{ fontSize: '13px', color: '#64748b', lineHeight: '1.6', margin: '0' }}>{item.desc}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -184,96 +340,52 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
             {activeDropdown === 'solutions' && (
                 <div className="paylo-mega">
                     <div className="paylo-mega__container">
-                        <div className="paylo-mega__sidebar">
-                            <h2 className="paylo-mega__title">Solusi Bisnis</h2>
-                            <p className="paylo-mega__desc">Semua solusi untuk segala jenis bisnismu.</p>
-                            <Link href="/demo" className="paylo-mega__btn">Lebih lanjut <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link>
+                        <div className="paylo-mega__sidebar" style={{ padding: '32px' }}>
+                            <h2 className="paylo-mega__title" style={{ fontSize: '26px', fontWeight: '800' }}>{current.solutionsTitle}</h2>
+                            <p className="paylo-mega__desc" style={{ fontSize: '13px', lineHeight: '1.5', margin: '12px 0 24px', color: '#4b5563' }}>{current.solutionsDesc}</p>
+                            <Link href="/demo" className="paylo-mega__btn" style={{ padding: '10px 18px', fontSize: '14px' }}>
+                                {current.solutionsMore} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </Link>
                         </div>
-                        <div className="paylo-mega__content">
-                            <div className="paylo-mega__grid-solutions">
-                                <div className="paylo-mega__sol-col">
-                                    <h5 className="font-bold mb-2">Food & Beverages</h5>
-                                    <p className="text-xs text-slate-500">Restaurant & Dining</p>
-                                    <p className="text-xs text-slate-500">Cafe & Beverage</p>
-                                    <p className="text-xs text-slate-500">Cloud based Multi-Outlet</p>
-                                </div>
-                                <div className="paylo-mega__sol-col">
-                                    <h5 className="font-bold mb-2">Hospitality & Service</h5>
-                                    <p className="text-xs text-slate-500">Beauty & Wellness</p>
-                                    <p className="text-xs text-slate-500">Lodging & Leisure</p>
-                                    <p className="text-xs text-slate-500">Automotive Services</p>
-                                </div>
-                                <div className="paylo-mega__sol-col">
-                                    <h5 className="font-bold mb-2">Retail & Distribution</h5>
-                                    <p className="text-xs text-slate-500">Daily Needs & Grocery</p>
-                                    <p className="text-xs text-slate-500">Specialized Retail</p>
-                                    <p className="text-xs text-slate-500">Fashion & Lifestyle</p>
-                                </div>
-                                <div className="paylo-mega__sol-col">
-                                    <h5 className="font-bold mb-2">Enterprise</h5>
-                                    <p className="text-xs text-slate-500">Production & Mfg</p>
-                                    <p className="text-xs text-slate-500">Contracting & Projects</p>
-                                    <p className="text-xs text-slate-500">Consulting & B2B</p>
-                                </div>
+                        <div className="paylo-mega__content" style={{ padding: '32px' }}>
+                            <div className="paylo-mega__grid-solutions" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
+                                {current.solutions.map((col: any) => (
+                                    <div key={col.title} className="paylo-mega__sol-col" style={{ textAlign: 'left' }}>
+                                        <h5 style={{ fontWeight: '800', color: '#0f172a', fontSize: '15px', marginBottom: '14px', borderBottom: '1px solid #f1f5f9', paddingBottom: '6px' }}>{col.title}</h5>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                            {col.items.map((item: string) => (
+                                                <a 
+                                                    key={item} 
+                                                    href="#" 
+                                                    style={{ 
+                                                        fontSize: '12.5px', 
+                                                        color: '#64748b', 
+                                                        textDecoration: 'none',
+                                                        transition: 'all 0.15s ease',
+                                                        display: 'block'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.color = '#2563EB';
+                                                        e.currentTarget.style.transform = 'translateX(4px)';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.color = '#64748b';
+                                                        e.currentTarget.style.transform = 'translateX(0)';
+                                                    }}
+                                                >
+                                                    {item}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             )}
 
-            {activeDropdown === 'support' && (
-                <div className="paylo-mega">
-                    <div className="paylo-mega__container">
-                        <div className="paylo-mega__sidebar">
-                            <h2 className="paylo-mega__title">Support</h2>
-                            <p className="paylo-mega__desc">Kami siap membantu perkembangan bisnis Anda 24/7.</p>
-                            <div className="paylo-mega__footer-links">
-                                <a href="#">Pusat Bantuan →</a>
-                                <a href="#">Komunitas Pengguna →</a>
-                            </div>
-                        </div>
-                        <div className="paylo-mega__content">
-                            <div className="paylo-mega__grid-support">
-                                <div className="paylo-mega__support-item">
-                                    <div className="paylo-mega__support-icon">📞</div>
-                                    <div>
-                                        <h5 className="font-bold">Paylo Care</h5>
-                                        <p className="text-xs text-slate-500">Layanan pelanggan prioritas</p>
-                                    </div>
-                                </div>
-                                <div className="paylo-mega__support-item">
-                                    <div className="paylo-mega__support-icon">✉️</div>
-                                    <div>
-                                        <h5 className="font-bold">Hubungi Kami</h5>
-                                        <p className="text-xs text-slate-500">Kirim pertanyaan atau feedback</p>
-                                    </div>
-                                </div>
-                                <div className="paylo-mega__support-item">
-                                    <div className="paylo-mega__support-icon">❓</div>
-                                    <div>
-                                        <h5 className="font-bold">FAQ</h5>
-                                        <p className="text-xs text-slate-500">Jawaban cepat untuk pertanyaan umum</p>
-                                    </div>
-                                </div>
-                                <div className="paylo-mega__support-item">
-                                    <div className="paylo-mega__support-icon">📖</div>
-                                    <div>
-                                        <h5 className="font-bold">Panduan Pengguna</h5>
-                                        <p className="text-xs text-slate-500">Tutorial lengkap penggunaan fitur</p>
-                                    </div>
-                                </div>
-                                <div className="paylo-mega__support-item">
-                                    <div className="paylo-mega__support-icon">🎥</div>
-                                    <div>
-                                        <h5 className="font-bold">Video Tutorial</h5>
-                                        <p className="text-xs text-slate-500">Visualisasi langkah demi langkah</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
+
         </nav>
     );
 }

@@ -19,7 +19,7 @@ export default function Settings({ settings }: any) {
 
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
-        post(route('admin.settings.store'));
+        post('/admin/settings');
     };
 
     return (

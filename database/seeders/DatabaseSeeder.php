@@ -15,14 +15,20 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'role' => 'super_admin',
-        ]);
+        User::updateOrCreate(
+            ['email' => 'test@example.com'],
+            [
+                'name' => 'Test User',
+                'role' => 'super_admin',
+                'password' => bcrypt('password'), // Ensure a password exists if creating
+            ]
+        );
 
         $this->call([
             AdminDashboardSeeder::class,
         ]);
+
+        // Cleanup: Remove any old plans that are not in our 3 main plans
+        \App\Models\SubscriptionPlan::whereNotIn('slug', ['starter', 'professional', 'enterprise'])->delete();
     }
 }

@@ -29,12 +29,29 @@ export default function AuthSplitLayout({
                 </Link>
 
                 <div className="relative z-20 mt-auto">
-                    <blockquote className="space-y-2">
-                        <p className="text-lg font-medium">
-                            &ldquo;Paylo has revolutionized how we manage our multi-outlet inventory. The real-time syncing and automated reporting have saved us dozens of hours every week.&rdquo;
-                        </p>
-                        <footer className="text-sm">Budi Santoso, CEO of Retail Group</footer>
-                    </blockquote>
+                    {(() => {
+                        const quotes = [
+                            {
+                                text: "Paylo has revolutionized how we manage our multi-outlet inventory. The real-time syncing and automated reporting have saved us dozens of hours every week.",
+                                author: "Budi Santoso, CEO of Retail Group"
+                            },
+                            {
+                                text: "The best POS system I've ever used. Simple yet powerful enough to handle all our complex business logic.",
+                                author: "Siti Aminah, Founder of Fashion Hub"
+                            },
+                            {
+                                text: "Transitioning to Paylo was the best decision for our warehouse operations. Accuracy went up by 40% in just two months.",
+                                author: "Hendra Wijaya, Operations Director"
+                            }
+                        ];
+                        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+                        return (
+                            <blockquote className="space-y-2">
+                                <p className="text-lg font-medium">&ldquo;{quote.text}&rdquo;</p>
+                                <footer className="text-sm">{quote.author}</footer>
+                            </blockquote>
+                        );
+                    })()}
                 </div>
             </div>
 

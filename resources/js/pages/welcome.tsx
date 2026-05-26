@@ -3,8 +3,6 @@ import { Head } from '@inertiajs/react';
 import Navbar from '@/components/profile/navbar';
 import HeroSection from '@/components/profile/hero-section';
 import FeaturesSection from '@/components/profile/features-section';
-import ValuesSection from '@/components/profile/values-section';
-import ProductsSection from '@/components/profile/products-section';
 import WhyChooseSection from '@/components/profile/why-choose-section';
 import IndustriesSection from '@/components/profile/industries-section';
 import ImpactSection from '@/components/profile/impact-section';
@@ -36,8 +34,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }: WelcomePro
                 <Navbar lang={lang} setLang={(l) => setLang(l)} />
                 <HeroSection lang={lang} />
                 <FeaturesSection lang={lang} />
-                <ValuesSection lang={lang} />
-                <ProductsSection lang={lang} />
                 <WhyChooseSection lang={lang} />
                 <IndustriesSection lang={lang} />
                 <ImpactSection lang={lang} />

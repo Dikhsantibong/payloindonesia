@@ -61,7 +61,7 @@ export default function Logs({ logs, filters }: any) {
     const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             router.get(
-                route('admin.logs'),
+                '/admin/logs',
                 { search, action: filterAction },
                 { preserveState: true, preserveScroll: true, replace: true }
             );
@@ -71,7 +71,7 @@ export default function Logs({ logs, filters }: any) {
     const handleFilterChange = (val: string) => {
         setFilterAction(val);
         router.get(
-            route('admin.logs'),
+            '/admin/logs',
             { search, action: val },
             { preserveState: true, preserveScroll: true, replace: true }
         );

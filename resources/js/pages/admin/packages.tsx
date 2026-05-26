@@ -91,11 +91,11 @@ export default function Packages({ packages }: any) {
         };
 
         if (editingPackage) {
-            router.put(route('admin.packages.update', editingPackage.id), payload, {
+            router.put(`/admin/packages/${editingPackage.id}`, payload, {
                 onSuccess: () => closeDialog(),
             });
         } else {
-            router.post(route('admin.packages.store'), payload, {
+            router.post('/admin/packages', payload, {
                 onSuccess: () => closeDialog(),
             });
         }
@@ -103,7 +103,7 @@ export default function Packages({ packages }: any) {
 
     const handleDelete = (pkg: any) => {
         if (confirm(`Apakah Anda yakin ingin menghapus paket ${pkg.name}?`)) {
-            router.delete(route('admin.packages.destroy', pkg.id));
+            router.delete(`/admin/packages/${pkg.id}`);
         }
     };
 

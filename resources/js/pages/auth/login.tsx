@@ -115,7 +115,33 @@ export default function Login({
     );
 }
 
+const welcomeMessages = [
+    {
+        title: 'Selamat Datang Kembali',
+        description: 'Masuk ke akun Anda untuk mengelola operasional bisnis hari ini',
+    },
+    {
+        title: 'Siap Berbisnis Lagi?',
+        description: 'Pantau stok, penjualan, dan performa tim Anda dalam satu dasbor',
+    },
+    {
+        title: 'Halo, Partner!',
+        description: 'Senang melihat Anda kembali. Mari tingkatkan efisiensi bisnis Anda hari ini',
+    },
+    {
+        title: 'Akses Dasbor Anda',
+        description: 'Kelola inventaris dan transaksi dengan mudah dan cepat bersama Paylo',
+    },
+    {
+        title: 'Kendalikan Bisnis Anda',
+        description: 'Satu platform terintegrasi untuk seluruh kebutuhan operasional retail Anda',
+    },
+];
+
+// Pick a random message on each module load
+const randomMessage = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+
 Login.layout = {
-    title: 'Selamat Datang Kembali',
-    description: 'Masuk ke akun Anda untuk mengelola operasional bisnis hari ini',
+    title: randomMessage.title,
+    description: randomMessage.description,
 };

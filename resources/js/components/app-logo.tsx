@@ -10,7 +10,7 @@ export default function AppLogo() {
                 <span className="mb-0.5 truncate leading-tight font-bold">
                     Paylo
                 </span>
-                <span className="truncate text-[10px] leading-tight text-muted-foreground">
+                <span className="truncate text-[10px] leading-tight opacity-70">
                     Super Admin
                 </span>
             </div>

@@ -27,15 +27,15 @@ export default function ImpactSection({ lang }: { lang: 'ID' | 'EN' }) {
     return (
         <section className="paylo-impact">
             <div className="paylo-container">
-                <div className="paylo-impact__bg">
+                <div className="paylo-impact__wrapper">
                     <div className="paylo-impact__content">
-                        <div className="paylo-section-header">
-                            <span className="paylo-section-label text-white/70">{current.label}</span>
-                            <h2 className="paylo-section-title text-white">{current.title}</h2>
+                        <div className="paylo-impact__header">
+                            <span className="paylo-impact__subtitle">{current.label}</span>
+                            <h2 className="paylo-impact__title">{current.title}</h2>
                         </div>
                         <div className="paylo-impact__grid">
                             {current.stats.map((stat, i) => (
-                                <div key={i} className="paylo-impact__stat">
+                                <div key={i} className="paylo-impact__stat-item">
                                     <div className="paylo-impact__value">{stat.value}</div>
                                     <div className="paylo-impact__label">{stat.label}</div>
                                 </div>

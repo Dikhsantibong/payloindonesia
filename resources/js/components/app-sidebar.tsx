@@ -8,6 +8,7 @@ import {
     Users,
     Headphones,
     Activity,
+    FileText,
     Settings,
     HelpCircle,
 } from 'lucide-react';
@@ -48,6 +49,11 @@ const mainNavItems: NavItem[] = [
         title: 'Paket Langganan',
         href: '/admin/packages',
         icon: Package,
+    },
+    {
+        title: 'Invoice',
+        href: '/admin/invoices',
+        icon: FileText,
     },
     {
         title: 'Analytics',

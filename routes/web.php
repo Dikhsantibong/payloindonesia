@@ -36,12 +36,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('admin/packages/{package}', [\App\Http\Controllers\Admin\SubscriptionPlanController::class, 'destroy'])->name('admin.packages.destroy');
         
         Route::get('admin/analytics', [\App\Http\Controllers\Admin\AnalyticsController::class, 'index'])->name('admin.analytics');
-        Route::inertia('admin/users', 'admin/users')->name('admin.users');
+        Route::get('admin/users', [\App\Http\Controllers\Admin\AdminUserController::class, 'index'])->name('admin.users');
+        Route::post('admin/users', [\App\Http\Controllers\Admin\AdminUserController::class, 'store'])->name('admin.users.store');
+        Route::put('admin/users/{user}', [\App\Http\Controllers\Admin\AdminUserController::class, 'update'])->name('admin.users.update');
+        Route::delete('admin/users/{user}', [\App\Http\Controllers\Admin\AdminUserController::class, 'destroy'])->name('admin.users.destroy');
         
         Route::get('admin/support', [\App\Http\Controllers\Admin\SupportTicketController::class, 'index'])->name('admin.support');
+        Route::get('admin/support/{ticket}', [\App\Http\Controllers\Admin\SupportTicketController::class, 'show'])->name('admin.support.show');
         Route::put('admin/support/{ticket}/status', [\App\Http\Controllers\Admin\SupportTicketController::class, 'updateStatus'])->name('admin.support.status');
+        Route::post('admin/support/{ticket}/reply', [\App\Http\Controllers\Admin\SupportTicketController::class, 'storeReply'])->name('admin.support.reply');
         
         Route::get('admin/logs', [\App\Http\Controllers\Admin\ActivityLogController::class, 'index'])->name('admin.logs');
+
+        Route::get('admin/invoices', [\App\Http\Controllers\Admin\InvoiceController::class, 'index'])->name('admin.invoices');
+        Route::get('admin/invoices/create', [\App\Http\Controllers\Admin\InvoiceController::class, 'create'])->name('admin.invoices.create');
+        Route::post('admin/invoices', [\App\Http\Controllers\Admin\InvoiceController::class, 'store'])->name('admin.invoices.store');
+        Route::put('admin/invoices/{invoice}/status', [\App\Http\Controllers\Admin\InvoiceController::class, 'updateStatus'])->name('admin.invoices.status');
+        Route::delete('admin/invoices/{invoice}', [\App\Http\Controllers\Admin\InvoiceController::class, 'destroy'])->name('admin.invoices.destroy');
+        Route::get('admin/invoices/{invoice}/pdf', [\App\Http\Controllers\Admin\InvoiceController::class, 'downloadPdf'])->name('admin.invoices.pdf');
+
         Route::get('admin/settings', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin.settings');
         Route::post('admin/settings', [\App\Http\Controllers\Admin\SettingController::class, 'store'])->name('admin.settings.store');
     });

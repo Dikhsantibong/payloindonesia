@@ -1,7 +1,6 @@
 export default function HeroSection({ lang }: { lang: 'ID' | 'EN' }) {
     const content = {
         ID: {
-            badge: '🚀 Platform Bisnis All-in-One',
             title: 'Satu Sistem untuk Kendali Bisnis yang Lebih Pintar',
             subtitle: 'Kelola kasir, inventaris, hingga laporan keuangan dalam satu dashboard terintegrasi. Tingkatkan efisiensi dan fokus pada pertumbuhan bisnis Anda.',
             ctaPrimary: 'Coba Gratis Sekarang',
@@ -13,7 +12,6 @@ export default function HeroSection({ lang }: { lang: 'ID' | 'EN' }) {
             ]
         },
         EN: {
-            badge: '🚀 All-in-One Business Platform',
             title: 'One System for Smarter Business Control',
             subtitle: 'Manage cashier, inventory, to financial reports in one integrated dashboard. Increase efficiency and focus on growing your business.',
             ctaPrimary: 'Try Free Now',
@@ -39,7 +37,6 @@ export default function HeroSection({ lang }: { lang: 'ID' | 'EN' }) {
             <div className="paylo-container">
                 <div className="paylo-hero__layout">
                     <div className="paylo-hero__content">
-                        <div className="paylo-hero__badge">{current.badge}</div>
                         <h1 className="paylo-hero__title">
                             {current.title.split(' ').map((word, i) => (
                                 <span key={i} className={i > 4 ? 'text-blue-600' : ''}>{word} </span>
@@ -71,13 +68,11 @@ export default function HeroSection({ lang }: { lang: 'ID' | 'EN' }) {
                         <div className="paylo-hero__mockup-container">
                             {/* Main Dashboard Placeholder */}
                             <div className="paylo-hero__main-mockup">
-                                <div className="paylo-hero__placeholder-image">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e2e8f0" strokeWidth="1">
-                                        <rect width="18" height="18" x="3" y="3" rx="2" />
-                                        <path d="M3 9h18M9 21V9" />
-                                    </svg>
-                                    <span>UTAMA DASHBOARD</span>
-                                </div>
+                                <img 
+                                    src="/hero/hero.png" 
+                                    alt="Paylo Dashboard Mockup" 
+                                    className="w-full h-full object-cover object-top" 
+                                />
                             </div>
 
                             {/* Floating UI Elements */}
