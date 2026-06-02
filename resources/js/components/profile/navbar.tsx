@@ -276,6 +276,36 @@ export default function Navbar({ lang, setLang }: { lang: 'ID' | 'EN', setLang: 
                 </button>
             </div>
 
+            {/* Mobile Menu */}
+            {mobileOpen && (
+                <div className="paylo-nav__mobile">
+                    {current.links.map((l) => (
+                        <div key={l.label}>
+                            {l.isExternal ? (
+                                <Link href={l.href} className="paylo-nav__mobile-link" onClick={() => setMobileOpen(false)}>
+                                    {l.label}
+                                </Link>
+                            ) : (
+                                <a href={l.href} className="paylo-nav__mobile-link" onClick={() => setMobileOpen(false)}>
+                                    {l.label}
+                                </a>
+                            )}
+                        </div>
+                    ))}
+                    <div className="paylo-nav__mobile-actions">
+                        <div className="paylo-nav__lang-selector">
+                            <button className={`paylo-nav__lang-btn ${lang === 'ID' ? 'active' : ''}`} onClick={() => setLang('ID')}>ID</button>
+                            <span className="paylo-nav__lang-divider">|</span>
+                            <button className={`paylo-nav__lang-btn ${lang === 'EN' ? 'active' : ''}`} onClick={() => setLang('EN')}>EN</button>
+                        </div>
+                        <Link href="/login" className="paylo-nav__mobile-link" onClick={() => setMobileOpen(false)}>{current.signin}</Link>
+                        <Link href="/register" className="paylo-btn paylo-btn--teal paylo-btn--sm" onClick={() => setMobileOpen(false)}>
+                            {current.cta}
+                        </Link>
+                    </div>
+                </div>
+            )}
+
             {/* Mega Menus (same as before) */}
 
 
