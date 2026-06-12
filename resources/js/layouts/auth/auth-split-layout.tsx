@@ -18,40 +18,92 @@ export default function AuthSplitLayout({
                     />
                 </div>
 
-                <Link
-                    href="/"
-                    className="relative z-20 flex items-center gap-2 text-2xl font-extrabold tracking-tight"
-                >
-                    <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                        <div className="w-4 h-4 bg-blue-600 rounded-sm" />
+                <div className="relative z-20 flex-1 flex flex-col justify-center">
+                    <div className="max-w-lg">
+                        <div className="mb-12">
+                            <h3 className="text-4xl font-bold mb-4">Mulai Bisnis Anda</h3>
+                            <p className="text-blue-100 text-lg">Hanya 4 langkah sederhana untuk mulai menggunakan Paylo dan kelola operasional bisnis dengan lebih efisien</p>
+                        </div>
+                        
+                        <div className="space-y-6">
+                            {[
+                                {
+                                    icon: (
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                        </svg>
+                                    ),
+                                    title: 'Daftar Akun',
+                                    desc: 'Buat akun bisnis Anda dengan mudah dalam hitungan menit'
+                                },
+                                {
+                                    icon: (
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                                        </svg>
+                                    ),
+                                    title: 'Pilih Paket',
+                                    desc: 'Pilih paket langganan yang sesuai dengan kebutuhan bisnis Anda'
+                                },
+                                {
+                                    icon: (
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                        </svg>
+                                    ),
+                                    title: 'Pembayaran',
+                                    desc: 'Selesaikan pembayaran dengan berbagai metode yang tersedia'
+                                },
+                                {
+                                    icon: (
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    ),
+                                    title: 'Siap Pakai',
+                                    desc: 'Sistem otomatis membuat domain dan akses aplikasi langsung aktif'
+                                }
+                            ].map((step, index) => (
+                                <div key={index} className="flex items-center gap-5 group">
+                                    <div className="relative">
+                                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
+                                            {step.icon}
+                                        </div>
+                                        {index < 3 && (
+                                            <div className="absolute left-8 top-16 w-0.5 h-10 bg-gradient-to-b from-white/30 to-transparent" />
+                                        )}
+                                    </div>
+                                    <div className="flex-1">
+                                        <h4 className="font-bold text-lg mb-1">{step.title}</h4>
+                                        <p className="text-sm text-blue-100/90">{step.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                    paylo
-                </Link>
+                </div>
 
-                <div className="relative z-20 mt-auto">
-                    {(() => {
-                        const quotes = [
-                            {
-                                text: "Paylo has revolutionized how we manage our multi-outlet inventory. The real-time syncing and automated reporting have saved us dozens of hours every week.",
-                                author: "Budi Santoso, CEO of Retail Group"
-                            },
-                            {
-                                text: "The best POS system I've ever used. Simple yet powerful enough to handle all our complex business logic.",
-                                author: "Siti Aminah, Founder of Fashion Hub"
-                            },
-                            {
-                                text: "Transitioning to Paylo was the best decision for our warehouse operations. Accuracy went up by 40% in just two months.",
-                                author: "Hendra Wijaya, Operations Director"
-                            }
-                        ];
-                        const quote = quotes[Math.floor(Math.random() * quotes.length)];
-                        return (
-                            <blockquote className="space-y-2">
-                                <p className="text-lg font-medium">&ldquo;{quote.text}&rdquo;</p>
-                                <footer className="text-sm">{quote.author}</footer>
-                            </blockquote>
-                        );
-                    })()}
+                <div className="relative z-20 mt-8">
+                    <div className="flex items-center gap-6 text-sm text-blue-100/80">
+                        <div className="flex items-center gap-2">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Gratis 14 hari trial</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Tanpa kartu kredit</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Support 24/7</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 

@@ -1238,9 +1238,21 @@
   max-width: 300px;
 }
 
-.paylo-footer__address {
+.paylo-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.paylo-footer__contact-link {
   font-size: 14px;
   color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.paylo-footer__contact-link:hover {
+  color: var(--primary);
 }
 
 .paylo-footer__nav {

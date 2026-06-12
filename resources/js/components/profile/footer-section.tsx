@@ -43,9 +43,9 @@ export default function FooterSection({ lang }: { lang: 'ID' | 'EN' }) {
                         <p className="paylo-footer__desc">
                             {current.desc}
                         </p>
-                        <div className="paylo-footer__address">
-                            Jl. Sudirman No. 123, Jakarta Selatan<br />
-                            Indonesia 12190
+                        <div className="paylo-footer__contact">
+                            <a href="mailto:hello@paylo.id" className="paylo-footer__contact-link">hello@paylo.id</a>
+                            <a href="tel:+628123456789" className="paylo-footer__contact-link">+62 812 3456 789</a>
                         </div>
                     </div>
 
