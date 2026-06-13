@@ -163,6 +163,10 @@ class InvoiceController extends Controller
             'app_name' => 'Paylo',
             'support_email' => 'support@paylo.id',
             'support_phone' => '+62 800 1234 5678',
+            'bank_name' => 'BANK SULTRA',
+            'bank_account_number' => '205.01.04.000531',
+            'bank_account_name' => 'PT KREATIF TEKNOLOGI MAJU BERSAMA',
+            'signature_name' => 'Administrator',
         ];
         $settings = array_merge($defaults, $settings);
 

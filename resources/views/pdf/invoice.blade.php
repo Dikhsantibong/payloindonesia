@@ -286,15 +286,15 @@
                         <table style="width: 100%; font-size: 12px; border-collapse: collapse; border: none;">
                             <tr>
                                 <td style="width: 90px; padding: 3px 0; font-weight: bold; color: #475569; border: none;">Bank:</td>
-                                <td style="padding: 3px 0; color: #0f172a; font-weight: bold; border: none;">BANK SULTRA</td>
+                                <td style="padding: 3px 0; color: #0f172a; font-weight: bold; border: none;">{{ $settings['bank_name'] ?? 'BANK SULTRA' }}</td>
                             </tr>
                             <tr>
                                 <td style="padding: 3px 0; font-weight: bold; color: #475569; border: none;">No. Rekening:</td>
-                                <td style="padding: 3px 0; color: #0f172a; font-family: monospace; font-size: 13px; font-weight: bold; border: none;">205.01.04.000531</td>
+                                <td style="padding: 3px 0; color: #0f172a; font-family: monospace; font-size: 13px; font-weight: bold; border: none;">{{ $settings['bank_account_number'] ?? '205.01.04.000531' }}</td>
                             </tr>
                             <tr>
                                 <td style="padding: 3px 0; font-weight: bold; color: #475569; border: none;">Atas Nama:</td>
-                                <td style="padding: 3px 0; color: #0f172a; border: none;">PT KREATIF TEKNOLOGI MAJU BERSAMA</td>
+                                <td style="padding: 3px 0; color: #0f172a; border: none;">{{ $settings['bank_account_name'] ?? 'PT KREATIF TEKNOLOGI MAJU BERSAMA' }}</td>
                             </tr>
                         </table>
                         <div style="margin-top: 10px; color: #64748b; font-size: 11px; line-height: 1.4;">
@@ -314,6 +314,12 @@
                 </td>
             </tr>
         </table>
+
+        <!-- Signature -->
+        <div style="margin-top: 50px; text-align: right; padding-right: 50px;">
+            <p style="margin-bottom: 60px; font-size: 13px; color: #0f172a;">Hormat Kami,</p>
+            <p style="font-weight: bold; font-size: 13px; color: #0f172a; text-decoration: underline;">{{ $settings['signature_name'] ?? 'Administrator' }}</p>
+        </div>
 
         <!-- Footer -->
         <div class="footer">

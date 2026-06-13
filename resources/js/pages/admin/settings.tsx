@@ -15,6 +15,10 @@ export default function Settings({ settings }: any) {
         trial_days: settings.trial_days || '14',
         payment_gateway_api: settings.payment_gateway_api || '',
         payment_gateway_secret: settings.payment_gateway_secret || '',
+        bank_name: settings.bank_name || 'BANK SULTRA',
+        bank_account_number: settings.bank_account_number || '205.01.04.000531',
+        bank_account_name: settings.bank_account_name || 'PT KREATIF TEKNOLOGI MAJU BERSAMA',
+        signature_name: settings.signature_name || 'Administrator',
     });
 
     const submit = (e: React.FormEvent) => {
@@ -140,6 +144,53 @@ export default function Settings({ settings }: any) {
                                     onChange={(e) => setData('payment_gateway_secret', e.target.value)}
                                     placeholder="SB-Mid-server-xxxxxxxx"
                                 />
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Informasi Pembayaran & Invoice</CardTitle>
+                            <CardDescription>Pengaturan rekening bank dan penanda tangan untuk invoice.</CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                                <div className="space-y-2">
+                                    <Label htmlFor="bank_name">Nama Bank</Label>
+                                    <Input
+                                        id="bank_name"
+                                        value={data.bank_name}
+                                        onChange={(e) => setData('bank_name', e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="bank_account_number">Nomor Rekening</Label>
+                                    <Input
+                                        id="bank_account_number"
+                                        value={data.bank_account_number}
+                                        onChange={(e) => setData('bank_account_number', e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="bank_account_name">Atas Nama Rekening</Label>
+                                    <Input
+                                        id="bank_account_name"
+                                        value={data.bank_account_name}
+                                        onChange={(e) => setData('bank_account_name', e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="signature_name">Nama Penanda Tangan Invoice</Label>
+                                    <Input
+                                        id="signature_name"
+                                        value={data.signature_name}
+                                        onChange={(e) => setData('signature_name', e.target.value)}
+                                        required
+                                    />
+                                </div>
                             </div>
                         </CardContent>
                     </Card>

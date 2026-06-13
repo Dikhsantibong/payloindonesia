@@ -25,6 +25,10 @@ class SettingController extends Controller
             'trial_days' => '14',
             'payment_gateway_api' => '',
             'payment_gateway_secret' => '',
+            'bank_name' => 'BANK SULTRA',
+            'bank_account_number' => '205.01.04.000531',
+            'bank_account_name' => 'PT KREATIF TEKNOLOGI MAJU BERSAMA',
+            'signature_name' => 'Administrator',
         ];
 
         return Inertia::render('admin/settings', [
